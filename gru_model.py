@@ -10,6 +10,7 @@ X = features_and_target_df.drop(columns=['log_price_spread'])
 y = features_and_target_df['log_price_spread']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 input_shape = (X_train.shape[1], 1)
+
 model = Sequential()
 model.add(GRU(64, input_shape=input_shape, activation='relu'))
 model.add(Dense(1, activation='linear'))
